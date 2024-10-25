@@ -1,0 +1,1 @@
+export type { IconDimension } from "./IconInterface"
