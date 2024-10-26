@@ -18,12 +18,22 @@ export default function TabLayout() {
           borderTopWidth: 0,
         }
       }}
+      initialRouteName='home'
     >
       <Tabs.Screen
-        name="index"
+        name="home"
       />
       <Tabs.Screen
-        name="explore"
+        name="scanner"
+      />
+      <Tabs.Screen
+        name="inspection"
+      />
+      <Tabs.Screen
+        name="tracking"
+      />
+      <Tabs.Screen
+        name="booking"
       />
 
     </Tabs>

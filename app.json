@@ -28,10 +28,48 @@
     },
     "plugins": [
       "expo-router",
-      "expo-localization"
+      "expo-localization",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Permitir a $(LOGIDRIVE) acceder a tu cámara."
+        }
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Permitir a $(LOGIDRIVE) acceder a tu cámara."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "fonts": [
+      {
+        "asset": "./assets/fonts/Urbanist-Black.ttf",
+        "family": "Urbanist-Black"
+      },
+      {
+        "asset": "./assets/fonts/Urbanist-Bold.ttf",
+        "family": "Urbanist-Bold"
+      },
+      {
+        "asset": "./assets/fonts/Urbanist-ExtraBold.ttf",
+        "family": "Urbanist-ExtraBold"
+      },
+      {
+        "asset": "./assets/fonts/Urbanist-Medium.ttf",
+        "family": "Urbanist-Medium"
+      },
+      {
+        "asset": "./assets/fonts/Urbanist-Regular.ttf",
+        "family": "Urbanist-Regular"
+      },
+      {
+        "asset": "./assets/fonts/Urbanist-SemiBold.ttf",
+        "family": "Urbanist-SemiBold"
+      }
+    ]
   }
 }
