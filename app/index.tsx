@@ -5,7 +5,7 @@ import { Redirect } from "expo-router";
 import { useEffect, useState } from "react";
 
 export default function App() {
-    // const {session}= useSessionStore()
+    const {session}= useSessionStore()
     const [isLoading, setIsLoading] = useState(true);
   
     const [fontsLoaded] = useFonts({
@@ -16,7 +16,7 @@ export default function App() {
         "Urbanist-Regular": require("../assets/fonts/Urbanist-Regular.ttf"),
         "Urbanist-SemiBold": require("../assets/fonts/Urbanist-SemiBold.ttf"),
     });
-
+    console.log(session)
     useEffect(() => {
         if (fontsLoaded) {
             const timer = setTimeout(() => {
@@ -30,6 +30,10 @@ export default function App() {
     if (!fontsLoaded || isLoading) {
         return <SplashScreenCustom />;
     } 
+
+    if(session?.token){
+        return <Redirect href={"/home"}/>
+    }
   
     return <Redirect href={"/login"} />;
 }

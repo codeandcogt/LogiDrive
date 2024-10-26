@@ -16,6 +16,7 @@ export default function TabLayout() {
           backgroundColor: 'transparent',
           elevation: 0,
           borderTopWidth: 0,
+          opacity:1
         }
       }}
       initialRouteName='home'

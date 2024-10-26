@@ -32,13 +32,15 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Permitir a $(LOGIDRIVE) acceder a tu cámara."
+          "cameraPermission": "Allow $(LOGIDRIVE) to access your camera",
+          "microphonePermission": "Allow $(LOGIDRIVE) to access your microphone",
+          "recordAudioAndroid": true
         }
       ],
       [
         "expo-barcode-scanner",
         {
-          "cameraPermission": "Permitir a $(LOGIDRIVE) acceder a tu cámara."
+          "cameraPermission": "Allow $(LOGIDRIVE) to access camera."
         }
       ]
     ],
