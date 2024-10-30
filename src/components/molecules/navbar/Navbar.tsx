@@ -4,7 +4,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useRouter } from "expo-router";
 
 interface NavbarProps {
-  path: string;
+  path: any;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ path }) => {

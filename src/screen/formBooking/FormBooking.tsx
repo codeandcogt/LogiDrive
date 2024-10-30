@@ -30,7 +30,9 @@ export const FormBookingScreen = () => {
         translucent={true}
       />
       <SafeAreaView style={styles.safeArea}>
-        <Navbar path={"/booking"} />
+        <View style={{height:50}}>
+            <Navbar path={"/booking"} />
+        </View>
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : undefined}
           style={styles.keyboardAvoidingView}
