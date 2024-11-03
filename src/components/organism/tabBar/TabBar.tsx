@@ -36,23 +36,23 @@ export function TabBar({ props }: TabBarIconProps) {
       ),
       label: "Scanner",
     },
-    // {
-    //   name: "inspection",
-    //   icon: () => (
-    //     <DocumentEditIcon fill={state.index === 2 ? "#000000" : "#FFFFFF"} />
-    //   ),
-    //   label: "Inspection",
-    // },
-    // {
-    //   name: "tracking",
-    //   icon: () => (
-    //     <CompassIcon fill={state.index === 2 ? "#000000" : "#FFFFFF"} />
-    //   ),
-    //   label: "Tracking",
-    // },
+    {
+      name: "inspection",
+      icon: () => (
+        <DocumentEditIcon fill={state.index === 2 ? "#000000" : "#FFFFFF"} />
+      ),
+      label: "Inspection",
+    },
+    {
+      name: "tracking",
+      icon: () => (
+        <CompassIcon fill={state.index === 3 ? "#000000" : "#FFFFFF"} />
+      ),
+      label: "Tracking",
+    },
     {
       name: "booking",
-      icon: () => <MailIcon stroke={state.index === 2 ? "#000000" : "#FFFFFF"} />,
+      icon: () => <MailIcon stroke={state.index === 4 ? "#000000" : "#FFFFFF"} />,
       label: "Booking",
     },
   ];

@@ -27,12 +27,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="scanner"
       />
-      {/* <Tabs.Screen
+      <Tabs.Screen
         name="inspection"
-      /> */}
-      {/* <Tabs.Screen
+      />
+      <Tabs.Screen
         name="tracking"
-      /> */}
+      />
       <Tabs.Screen
         name="booking"
       />
