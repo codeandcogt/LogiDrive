@@ -1,10 +1,11 @@
+import { InspectionScreen } from "@/src/screen/inspectionScreen/InspectionScreen";
 import { Text, View } from "react-native";
 
 
-export default function InspectionScreen() {
+export default function Inspection() {
   return (
-    <View>
-      <Text className="text-black">InspectionScreen</Text>
+    <View style={{flex: 1}}>
+      <InspectionScreen/>
     </View>
   );
 }
