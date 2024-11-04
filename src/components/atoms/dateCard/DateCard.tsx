@@ -12,6 +12,7 @@ interface DateCardProps {
   startDate: string;
   endDate: string;
   onButtonPress: () => void;
+  statusTrip?: boolean;
 }
 
 export const DateCard: React.FC<DateCardProps> = ({
@@ -19,6 +20,7 @@ export const DateCard: React.FC<DateCardProps> = ({
   startDate,
   endDate,
   onButtonPress,
+  statusTrip
 }) => {
   return (
     <View style={styles.container}>
@@ -50,7 +52,7 @@ export const DateCard: React.FC<DateCardProps> = ({
         </View>
 
         <TouchableOpacity style={styles.button} onPress={onButtonPress}>
-          <Text style={styles.buttonText}>Continuar</Text>
+          <Text style={styles.buttonText}>{statusTrip?"Entrar":"Salir"}</Text>
         </TouchableOpacity>
       </View>
     </View>

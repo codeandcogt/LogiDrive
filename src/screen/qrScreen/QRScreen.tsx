@@ -10,6 +10,7 @@ import {
   StyleSheet,
   Dimensions,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 import QRCode from "react-native-qrcode-svg";
 
@@ -17,8 +18,8 @@ const { width } = Dimensions.get("window");
 const cardWidth = Math.min(width - 32, 380);
 
 export const QRScreen = () => {
-  const { acceptance } = useAcceptanceStore();
-  const { handleBack } = useQR();
+  const { acceptance, scanner } = useAcceptanceStore();
+  const { handleBack, handleBackScanner, handleAccept } = useQR();
 
   return (
     <View style={styles.container}>
@@ -28,7 +29,7 @@ export const QRScreen = () => {
         translucent={true}
       />
       <SafeAreaView style={styles.overlay}>
-        <ButtonBack onPress={handleBack} />
+        <ButtonBack onPress={scanner ? handleBackScanner : handleBack} />
       </SafeAreaView>
       <View style={styles.cardWrapper}>
         <View style={styles.card}>
@@ -43,18 +44,19 @@ export const QRScreen = () => {
               {acceptance?.status ? "Activo" : "Inactivo"}
             </Text>
           </View>
-
-          <View style={styles.qrWrapper}>
-            <View style={styles.qrBackground}>
-              <QRCode
-                value={JSON.stringify({
-                  id: acceptance?.idVehicleAssignment,
-                  activityType:""
-                })}
-                size={160}
-              />
+          {!scanner && (
+            <View style={styles.qrWrapper}>
+              <View style={styles.qrBackground}>
+                <QRCode
+                  value={JSON.stringify({
+                    idVehicleAssignment: acceptance?.idVehicleAssignment,
+                    activityType: acceptance?.statusTrip ? "entrada" : "salida",
+                  })}
+                  size={160}
+                />
+              </View>
             </View>
-          </View>
+          )}
 
           <View style={styles.mainInfo}>
             <View style={styles.plateBox}>
@@ -71,12 +73,14 @@ export const QRScreen = () => {
                   {acceptance?.tripType || "-"}
                 </Text>
               </View>
-              <View style={styles.detailItem}>
-                <Text style={styles.detailLabel}>Horas para inicio</Text>
-                <Text style={styles.detailValue}>
-                  {acceptance?.remainingHoursToStart.toFixed(2) || "0"}h
-                </Text>
-              </View>
+              {acceptance?.remainingHoursToStart && (
+                <View style={styles.detailItem}>
+                  <Text style={styles.detailLabel}>Horas para inicio</Text>
+                  <Text style={styles.detailValue}>
+                    {acceptance?.remainingHoursToStart.toFixed(2) || "0"}h
+                  </Text>
+                </View>
+              )}
             </View>
 
             <View style={styles.dateSection}>
@@ -104,6 +108,14 @@ export const QRScreen = () => {
           )}
         </View>
       </View>
+
+      {scanner && (
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={handleAccept}>
+            <Text style={styles.buttonText}>Aceptar</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
@@ -250,5 +262,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#666",
     lineHeight: 20,
+  },
+  buttonContainer: {
+    paddingHorizontal: 16,
+    paddingBottom: 16, // Padding en la parte inferior
+    width: "100%",
+  },
+  button: {
+    backgroundColor: "#000000",
+    paddingVertical: 12,
+    borderRadius: 16,
+    alignItems: "center",
+    width: "100%",
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "600",
   },
 });

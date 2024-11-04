@@ -6,9 +6,8 @@ import { useRouter } from "expo-router";
 
 export const useTracking = () => {
   const { session } = useSessionStore();
-  const {setAcceptance}= useAcceptanceStore()
+  const { setAcceptance, setScanner } = useAcceptanceStore();
   const router = useRouter();
-
 
   const fetchAcceptance = async () => {
     try {
@@ -31,11 +30,11 @@ export const useTracking = () => {
     staleTime: 5000,
   });
 
-
-  const handleAccepte =(data: Acceptance)=>{
-    setAcceptance(data)
-    router.replace("/map")
-  }
+  const handleAccepte = (data: Acceptance) => {
+    setAcceptance(data);
+    setScanner(false);
+    router.replace("/map");
+  };
 
   return { refetch, data, isLoading, isError, error, handleAccepte };
 };

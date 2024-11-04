@@ -64,6 +64,7 @@ export const MapScreen = () => {
           startDate={FormatDate(acceptance?.startDate || "")}
           endDate={FormatDate(acceptance?.endDate || "")}
           onButtonPress={handleDetail}
+          statusTrip={acceptance?.statusTrip}
         />
       </View>
     </View>

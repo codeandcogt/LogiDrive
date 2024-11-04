@@ -29,7 +29,7 @@ export const VehicleReservationCard: React.FC<Props> = ({
   return (
     <TouchableOpacity
       style={[styles.cardContainer, isDisabled && styles.cardDisabled, style]}
-      disabled={isDisabled}
+      // disabled={isDisabled}
       onPress={onPress}
       activeOpacity={0.7}
     >
