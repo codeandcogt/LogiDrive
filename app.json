@@ -42,6 +42,12 @@
         {
           "cameraPermission": "Allow $(LOGIDRIVE) to access camera."
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(LOGIDRIVE) to use your location."
+        }
       ]
     ],
     "experiments": {

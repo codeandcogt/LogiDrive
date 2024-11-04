@@ -76,9 +76,9 @@ export const HomeScreen = () => {
             <Text style={styles.emptySubtext}>Las reservaciones aparecerán aquí</Text>
           </View>
         ) : (
-          sortedData.map((vehicleData) => (
+          sortedData.map((vehicleData, index) => (
             <HomeGarita 
-              key={`${vehicleData.idVehicle}-${vehicleData.departureTime}`}
+              key={`${vehicleData.idVehicle}-${vehicleData.departureTime}-${index}`}
               data={vehicleData}
             />
           ))
