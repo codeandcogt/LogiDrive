@@ -48,6 +48,14 @@
         {
           "locationAlwaysAndWhenInUsePermission": "Allow $(LOGIDRIVE) to use your location."
         }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow $(LOGIDRIVE) to access your photos.",
+          "savePhotosPermission": "Allow $(LOGIDRIVE) to save photos.",
+          "isAccessMediaLocationEnabled": true
+        }
       ]
     ],
     "experiments": {
